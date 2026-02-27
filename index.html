@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta content="ArtHOI" name="title" />
+  <meta content="ArtHOI: Articulated Human-Object Interaction Synthesis by 4D Reconstruction from Video Priors. The first zero-shot framework for articulated HOI synthesis via 4D reconstruction." name="description" />
+  <meta content="Human-Object Interaction, Articulated Objects, 4D Reconstruction, Video Diffusion, Zero-shot Synthesis" name="keywords" />
+  <meta content="index, follow" name="robots" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtHOI: Articulated Human-Object Interaction Synthesis by 4D Reconstruction from Video Priors</title>
+  <!-- Bootstrap & scripts (local) -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap-4.4.1.js"></script>
+  <script src="js/app.js"></script>
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet" />
+  <!-- Icons & fonts (CDN) -->
+  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    code { white-space: pre-wrap; }
+    body { font-family: 'Jost'; font-weight: 500; font-size: 1.25em; }
+    h1 { font-size: 2.25em; }
+    h2 { font-size: 1.75em; }
+    h3 { font-size: 1.5em; }
+    h1, h2, h3, h4, h5, h6 { font-weight: bolder; }
+    b, strong { font-weight: bolder; }
+    section > h5 { padding-bottom: 30px; }
+    .col-12 > h3 { padding-top: 30px; }
+    video, iframe { border-radius: 10px; padding: 0; margin: 0; }
+    .video-container { margin: 1em 0; }
+    .custom-link { color: inherit; text-decoration: none; }
+    .custom-link:hover { text-decoration: underline; }
+    .jumbotron { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
+  </style>
+</head>
+
+<body>
+  <!-- Cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 style="font-weight: bold">
+              <b>
+                <span style="
+                  font-weight: 800;
+                  background: linear-gradient(90deg, #2563eb 0%, #7c3aed 50%, #db2777 100%);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                ">ArtHOI</span>: 
+                <span style="color: #1e40af;">Articulated Human-Object Interaction Synthesis</span> 
+                by <span style="color: #6d28d9;">4D Reconstruction</span> from Video Priors
+              </b>
+            </h1>
+            <hr>
+            <p class="mb-2">
+              <a href="https://inso-13.github.io/" target="_blank" class="custom-link">Zihao Huang</a><sup>1,2,3</sup>&nbsp;&nbsp;
+              <a href="http://tqtqliu.github.io/" target="_blank" class="custom-link">Tianqi Liu</a><sup>1,2,3</sup>&nbsp;&nbsp;
+              <a href="https://frozenburning.github.io/" target="_blank" class="custom-link">Zhaoxi Chen</a><sup>1</sup>&nbsp;&nbsp;
+              <a href="https://daniellli.github.io/" target="_blank" class="custom-link">Shaocong Xu</a><sup>2</sup>&nbsp;&nbsp;
+              <a href="https://sainingzhang.github.io/" target="_blank" class="custom-link">Saining Zhang</a><sup>1,2</sup>&nbsp;&nbsp;
+              <br>
+              Lixing Xiao<sup>5</sup>&nbsp;&nbsp;
+              <a href="https://scholar.google.com/citations?user=396o2BAAAAAJ&hl=en" target="_blank" class="custom-link">Zhiguo Cao</a><sup>3</sup>&nbsp;&nbsp;
+              <a href="https://weivision.github.io/" target="_blank" class="custom-link">Wei Li</a><sup>1</sup>&nbsp;&nbsp;
+              <a href="https://sites.google.com/view/fromandto" target="_blank" class="custom-link">Hao Zhao</a><sup>4,2</sup><sup>*</sup>&nbsp;&nbsp;
+              <a href="https://liuziwei7.github.io/" target="_blank" class="custom-link">Ziwei Liu</a><sup>1</sup><sup>*</sup>
+            </p>
+            <p class="text-muted">
+              <sup>1</sup>NTU&nbsp;&nbsp;&nbsp;&nbsp;
+              <sup>2</sup>BAAI&nbsp;&nbsp;&nbsp;&nbsp;
+              <sup>3</sup>HUST&nbsp;&nbsp;&nbsp;&nbsp;
+              <sup>4</sup>AIR, THU&nbsp;&nbsp;&nbsp;&nbsp;
+              <sup>5</sup>ZJU
+            </p>
+            <p class="text-muted small"><sup>*</sup>Corresponding Authors</p>
+            <div class="row justify-content-center">
+              <div class="column mx-2">
+                <a class="btn btn-primary" href="#" role="button" target="_blank"><i class="ai ai-arxiv"></i> <b>arXiv</b></a>
+              </div>
+              <div class="column mx-2">
+                <a class="btn btn-primary" href="#" role="button" target="_blank"><i class="fab fa-youtube"></i> <b>YouTube</b></a>
+              </div>
+              <div class="column mx-2">
+                <a class="btn btn-primary" href="#" role="button" target="_blank"><i class="fab fa-github"></i> <b>Code</b></a>
+              </div>
+              <div class="column mx-2">
+                <a class="btn btn-primary" href="assets/bib.txt" role="button" target="_blank"><i class="fas fa-quote-left"></i> <b>Cite</b></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TL;DR -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1>TL;DR</h1>
+          <hr style="margin-top: 0px" />
+          <h5>ArtHOI is the first zero-shot framework for articulated human-object interaction synthesis via 4D reconstruction from monocular video priors. We achieve RGB rendering, articulated object modeling, physical constraint modeling, and zero-shot generalization—without 3D supervision.</h5>
+          <br>
+          <div class="video-container">
+            <video class="video" style="width: 98%; max-width: 1200px" autoplay controls muted loop playsinline>
+              <source src="videos/task.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
+
+  <!-- Diverse Articulated Interactions -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1>Diverse Articulated Interactions</h1>
+          <h5>ArtHOI synthesizes realistic human-object interactions with articulated objects such as doors, cabinets, fridges, and microwaves—maintaining proper contact and kinematic constraints.</h5>
+          <hr style="margin-top: 0px" />
+          <div class="video-container">
+            <video class="video" style="width: 98%; max-width: 1200px" autoplay muted loop playsinline>
+              <source src="videos/results.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
+
+  <!-- Abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1>Abstract</h1>
+          <hr style="margin-top: 0px" />
+          <img src="assets/teaser.png" width="100%" alt="ArtHOI Teaser" class="mb-4" />
+          <p style="text-align: justify; text-justify: inter-word;">
+            Synthesizing physically plausible articulated human-object interactions (HOI) without 3D/4D supervision remains a fundamental challenge.
+            While recent zero-shot approaches leverage video diffusion models to synthesize human-object interactions, they are largely confined to rigid-object manipulation and lack explicit 4D geometric reasoning.
+            To bridge this gap, we formulate articulated HOI synthesis as a <b>4D reconstruction problem from monocular video priors</b>: given only a video generated by a diffusion model, we reconstruct a full 4D articulated scene without any 3D supervision.
+            This reconstruction-based approach treats the generated 2D video as supervision for an inverse rendering problem, recovering geometrically consistent and physically plausible 4D scenes that naturally respect contact, articulation, and temporal coherence.
+            We introduce <b>ArtHOI</b>, the first zero-shot framework for articulated human-object interaction synthesis via 4D reconstruction from video priors.
+            Our key designs are: <b>1)</b> <i>Flow-based part segmentation</i>: leveraging optical flow as a geometric cue to disentangle dynamic from static regions in monocular video; <b>2)</b> <i>Decoupled reconstruction pipeline</i>: joint optimization of human motion and object articulation is unstable under monocular ambiguity, so we first recover object articulation, then synthesize human motion conditioned on the reconstructed object states.
+            ArtHOI bridges video-based generation and geometry-aware reconstruction, producing interactions that are both semantically aligned and physically grounded.
+            Across diverse articulated scenes (e.g., opening fridges, cabinets, microwaves), ArtHOI significantly outperforms prior methods in contact accuracy, penetration reduction, and articulation fidelity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
+
+  <!-- Method -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1>Method</h1>
+        </div>
+        <div class="col-12">
+          <hr style="margin-top: 0px" />
+          <img src="assets/pipeline.png" width="100%" alt="ArtHOI Pipeline"/>
+          <p style="text-align: left; text-justify: inter-word;">
+            Overview of <b>ArtHOI</b>.
+            Given a monocular video \(\mathcal{V} = \{I(t)\}_{t=1}^T\) (generated from a text prompt or captured from real scenes), we formulate interaction synthesis as a 4D reconstruction problem.
+            <b>Stage I</b> identifies articulated object parts via flow-based segmentation (point tracking, SAM-guided masks, back projection to 3D Gaussians, quasi-static binding), then recovers object articulation with kinematic constraints.
+            <b>Stage II</b> refines human motion (SMPL-X) conditioned on the reconstructed 4D object scaffold, using 3D contact keypoints derived from 2D evidence and enforcing kinematic, collision, and foot-sliding losses.
+            The decoupled design avoids monocular ambiguity and yields geometrically consistent, physically plausible articulated HOI.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
+
+  <!-- Comparisons -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1>Comparisons</h1>
+          <h5>ArtHOI outperforms prior methods in contact accuracy, penetration reduction, and articulation fidelity. Zero-shot baselines (e.g., ZeroHSI) treat objects as rigid and fail to model part-wise articulation.</h5>
+          <img src="assets/comparisons.png" width="100%" alt="Comparisons" />
+          <div class="video-container">
+            <video class="video" style="width: 98%; max-width: 1200px" autoplay muted loop playsinline>
+              <source src="videos/comparisons.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
+
+  <!-- Citation -->
+  <div class="container" id="citation">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Citation</h1>
+      </div>
+      <div class="col-md-12">
+        <hr style="margin-top: 0px" />
+        <pre style="background-color: #e9eeef; padding: 1.5em 1.5em; border-radius: 20px; font-size: 0.9em; overflow-x: auto;"><code>@article{huang2025arthoi,
+  title={ArtHOI: Articulated Human-Object Interaction Synthesis by 4D Reconstruction from Video Priors},
+  author={Huang, Zihao and Liu, Tianqi and Chen, Zhaoxi and Xu, Shaocong and Zhang, Saining and Xiao, Lixing and Cao, Zhiguo and Li, Wei and Zhao, Hao and Liu, Ziwei},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
+  year={2025}
+}</code></pre>
+        <hr />
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <footer class="text-center" style="margin-bottom: 30px">
+    <p class="text-muted small">
+      Thanks to <a href="https://lightx-ai.github.io/" target="_blank">Light-X</a> for the website template inspiration.
+    </p>
+  </footer>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="widgetContainer" style="width: 200px; margin: 0 auto;">
+          <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=cNw2hr6jrKK_VhdE1-sJst9ucc_rq6i3b2CMEaN54PI"></script>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
