@@ -1,6 +1,6 @@
 @article{huang2026arthoi,
   title={ArtHOI: Articulated Human-Object Interaction Synthesis by 4D Reconstruction from Video Priors},
   author={Huang, Zihao and Liu, Tianqi and Chen, Zhaoxi and Xu, Shaocong and Zhang, Saining and Xiao, Lixing and Cao, Zhiguo and Li, Wei and Zhao, Hao and Liu, Ziwei},
-  journal={arXiv preprint arXiv:X2603.04338},
+  journal={arXiv preprint arXiv:2603.04338},
   year={2026}
 }
